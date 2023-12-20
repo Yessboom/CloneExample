@@ -1,10 +1,42 @@
-<h1>Todo list</h1>
-<ul>
-  <% for(task of tasks) { %>
-    <li><%= task.task %> - <a href="/delete/<%= task.id %>">Delete</a></li>
+<h1>test Yourself</h1>
+<table>
+  <tr>
+     <th>French</th><th>English</th><th>Essais</th><th>Réussis</th>
+  </tr>
+
+  <% for (var i = 0; i < tasks.length; /* I save the data in a variable 'quotation', I don't know how you named your variable  */  i++) { %>
+   <tr>
+     <td><%= tasks[i].task %></td>
+     <td><%= tasks[i].wordsEN %></td>
+     <td><%= tasks[i].wordstry %></td>
+     <td><%= tasks[i].wordsgood %></td>
+
+
+   </tr>    
   <% } %>
-</ul>
+</table>
 <form action="/add" method="POST">
-  <input name="task" />
+  <input name="task" /> 
+  <input name="wordsEN" />
   <input type="submit" />
 </form>
+
+<h1>Gimme Ur answer</h1>
+<% var random = Math.floor(Math.random() * tasks.length); %>
+<h3> Word :</h3>
+<li><%= tasks[random].task %> </li>
+<h3> The answer I want</h3>
+<li name="good"><%= tasks[random].wordsEN %></li>
+
+<h1></h1>
+<form action="/try" method="POST">
+  <input name=answer /> 
+  <input type="submit" />
+  
+</form>
+
+
+
+
+
+

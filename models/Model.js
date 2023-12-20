@@ -144,6 +144,7 @@ export default class Model {
     record.update(rows[0]);
     return record;
   }
+  
 
   /**
    * Load records from the database
@@ -154,6 +155,7 @@ export default class Model {
     return await query(`SELECT * FROM ${this.table}`, {}, where);
   }
 
+  
   /**
    * Save (INSERT/UPDATE) the record in the database
    * @returns {Promise<void>}
